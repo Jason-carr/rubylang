@@ -59,8 +59,70 @@ frutas = ['Manzana','Pera','uva','Anon','Durazno','Mango']
 #	puts valor
 #end	
 
-persona = {"nombre" => "Jason", "edad" => 23 }
-puts persona["edad"]
-persona.each do |clave, valor|
-	puts " La clave es #{clave}" " y el valor es #{valor}"
+#persona = {"nombre" => "Jason", "edad" => 23 }
+persona = {nombre: "Jason", edad: 23}
+#puts persona["edad"]
+#persona.each do |clave, valor|
+#	puts " La clave es #{clave}" " y el valor es #{valor}"
+#end
+
+#puts persona.length	
+#puts persona.has_key?("estatura")
+#puts persona.keys
+#puts persona[:nombre]
+
+#def cuadrado(numero)
+#	return numero*numero
+#end
+#puts "Ingresa un número:"
+#mi_numero = gets.chomp.to_f
+#puts "el cuadrado es: #{cuadrado(mi_numero)}"
+
+#def hola_persona(*personas)
+#	persona.each do |persona|
+#	puts "hola #{persona}"
+#   end
+#end
+#gente = ['Jason','Daniel','Juan']
+#hola_persona('Jason','Daniel','Juan','Jhon'*gente)
+
+#def suma(numero_uno:5,numero_dos:0)
+#	return numero_uno+numero_dos
+#end
+#puts suma(numero_dos:4)
+
+class Persona
+	attr_accessor :nombre, :edad
+
+    def initialize(n,e)
+    	self.nombre = n
+    	self.edad = e 
+    end
+
+	def saludar
+		puts "Hola"
+	end
 end	
+
+class Alumno < Persona
+	attr_accessor :codigo
+	def estudiar
+		puts "Estoy estudiando"
+	end
+
+	def saludar
+		super
+		puts "Profe"
+	end
+end
+
+persona_uno = Persona.new("Arley",45)
+persona_dos = Persona.new("Paola",26)
+#persona_uno.nombre = "Arley"
+#persona_dos.nombre = "Paola"
+persona_dos.saludar
+puts persona_uno.nombre
+puts "La edad de la persona es #{persona_uno.edad}"
+alumno_uno = Alumno.new("Jhon", 24)
+alumno_uno.estudiar
+alumno_uno.saludar
